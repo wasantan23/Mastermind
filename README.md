@@ -2,6 +2,9 @@
 
 From Wikipedia: Mastermind or Master Mind is a code-breaking game for two players. The modern game with pegs was invented in 1970 by Mordecai Meirowitz, an Israeli postmaster and telecommunications expert.[1][2] It resembles an earlier pencil and paper game called Bulls and Cows that may date back a century or more.
 
+# Red, Yellow, Orange, Green, Blue, Purple, White
+# Scoring Black, White
+
 Mastermind.  (Main.java class if using Repl.it but ok)
 *Make a game class
 **gives rules at beginning (could be a method call printRules() )
