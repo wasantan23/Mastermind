@@ -1,0 +1,5 @@
+Jan 24...
+
+    worked on random number generations
+    
+    
