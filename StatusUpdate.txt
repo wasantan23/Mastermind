@@ -1,0 +1,79 @@
+//2D array List makes up the board
+//Secret does not get printed every time  - 5 different pins
+//How many different trials
+//class, Board, Game, Player
+//Variables
+//Arraylist
+//2D Arraulist?
+import java.util.ArrayList; //imports so we can use array lists
+
+public class Mastermind {
+
+//public static void main (String [] args) {
+
+//char [][] arr = new char [10][8];
+ArrayList<ArrayList<String>> board = new ArrayList<ArrayList<String>>(); //creates a 2D array
+/* {{R,G B, Y, b, w, o, o},
+{R,G B, Y, b, w, o, o},
+{R,G B, Y, b, w, o, o},
+{R,G B, Y, b, w, o, o},
+}
+*/
+
+public void buildBoard () { //method to build the board
+board.add(new ArrayList<String>()); //adds a new array to the board
+//get at 0 has to be guess at turn 
+
+//for (int x = 0; x 
+board.get(0).add(" "); //space for the guesses 
+board.get(0).add(" ");
+board.get(0).add(" ");
+board.get(0).add(" ");
+board.get(0).add(" = ");
+board.get(0).add(" ");
+board.get(0).add(" ");
+board.get(0).add(" ");
+board.get(0).add(" ");
+/*board.get(1).add("-");
+board.get(1).add("-");
+board.get(1).add("-");
+board.get(1).add("-"); */
+
+
+//how will the human add a guess - 4 digit color band
+
+}
+
+public void printBoard() { //method to pirnt the board
+System.out.println("\t Guesses \t Score");
+System.out.println(board);
+/*System.out.println(board.get(0));
+System.out.println(board.get(1));
+System.out.println(board.get(2));
+System.out.println(board.get(3));
+System.out.println(board.get(4));
+*/
+
+}
+
+public void addGuess (char [] arrChar) { //method to add guess
+	for (int i = 0; i < 4; i ++) {
+		board.get(0).set(i, String.valueOf(arrChar[i]) ); //gets the guess from the tester
+}
+}
+
+
+
+/*public void printBoard() {
+System.out.println("\t Guesses \t Score");
+System.out.println(board.get(0));
+System.out.println(board.get(1));
+System.out.println(board.get(2));
+System.out.println(board.get(3));
+System.out.println(board.get(4));
+*/
+
+}
+
+
+
