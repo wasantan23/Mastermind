@@ -1,0 +1,107 @@
+//2D array List makes up the board
+//Secret does not get printed every time  - 5 different pins
+//How many different trials
+//class, Board, Game, Player
+//Variables
+//Arraylist
+//2D Arraulist?
+import java.util.ArrayList;
+
+public class Mastermind {
+
+//public static void main (String [] args) {
+
+//char [][] arr = new char [10][8];
+ArrayList<ArrayList<String>> board = new ArrayList<ArrayList<String>>();
+/* {{R,G B, Y, b, w, o, o},
+{R,G B, Y, b, w, o, o},
+{R,G B, Y, b, w, o, o},
+{R,G B, Y, b, w, o, o},
+}
+*/
+
+
+public void buildBoard () {
+board.add(new ArrayList<String>());
+//get at 0 has to be guess at
+//board.get(0).add(" "); 
+
+//for (int x = 0; x < 9; x++) { 
+board.get(0).add(" ");
+board.get(0).add(" ");
+board.get(0).add(" ");
+board.get(0).add(" ");
+board.get(0).add(" = ");
+board.get(0).add(" ");
+board.get(0).add(" ");
+board.get(0).add(" ");
+board.get(0).add(" ");
+/*board.get(1).add("-");
+board.get(1).add("-");
+board.get(1).add("-");
+board.get(1).add("-"); */
+
+//how will the human add a guess - 4 digit color band
+
+//}
+}
+
+public void printBoard () {
+System.out.println("\t Guesses \t Score");
+System.out.println(board);
+/*System.out.println(board.get(0));
+System.out.println(board.get(1));
+System.out.println(board.get(2));
+System.out.println(board.get(3));
+System.out.println(board.get(4));
+*/
+
+}
+
+public void addGuess (char [] arrChar) {
+	for (int i = 0; i < 4; i ++) {
+		board.get(0).set(i, String.valueOf(arrChar[i]) );
+}
+}
+
+public void computerGuess () {
+	int r = (int) (Math.random()  * 7);
+	String [] arr = { "R", "Y", "G", "P". "O", "B"};
+	String firstPos = arr[r];
+	r = (int) (Math.random()  * 6);
+	String secondPos = arr[r];
+
+while (firstPos.equals(secondPos)) {
+	r = (int) (Math.random()  * 6);
+	secondPos = arr[r];
+	
+}
+	r = (int) (Math.random()  * 6);
+	String thirdPos = arr[r];
+	
+	while ((firstPos.equals(thirdPos) || secondPos.equals(thirdPos))) {
+		r = (int) (Math.random()  * 6);
+		thirdPos = arr[r];
+	}
+	r = (int) (Math.random()  * 6);
+	String fourthPos = arr[r];
+	
+	while ((firstPos.equals(fourthPos)) || (secondPos.equals(fourthPos))) {
+		r = (int) (Math.random()  * 6);
+		fourthPos = arr[r];
+ }
+}
+
+/*public void printBoard() {
+System.out.println("\t Guesses \t Score");
+System.out.println(board.get(0));
+System.out.println(board.get(1));
+System.out.println(board.get(2));
+System.out.println(board.get(3));
+System.out.println(board.get(4));
+*/
+
+}
+
+
+
