@@ -65,10 +65,11 @@ public void addGuess (char [] arrChar) {
 }
 
 public void computerGuess () {
-	int r = (int) (Math.random()  * 7);
-	String [] arr = { "R", "Y", "G", "P". "O", "B"};
+	int r = (int) (Math.random()  * 6);
+	String[] arr = { "R", "Y", "G", "P", "O", "B"};
 	String firstPos = arr[r];
-	r = (int) (Math.random()  * 6);
+	int temp = (int) Math.random() *1000;
+	r = (int)(Math.random()  * 6);
 	String secondPos = arr[r];
 
 while (firstPos.equals(secondPos)) {
@@ -79,18 +80,21 @@ while (firstPos.equals(secondPos)) {
 	r = (int) (Math.random()  * 6);
 	String thirdPos = arr[r];
 	
-	while ((firstPos.equals(thirdPos) || secondPos.equals(thirdPos))) {
+	while (firstPos.equals(thirdPos) || secondPos.equals(thirdPos)) {
 		r = (int) (Math.random()  * 6);
 		thirdPos = arr[r];
 	}
 	r = (int) (Math.random()  * 6);
 	String fourthPos = arr[r];
 	
-	while ((firstPos.equals(fourthPos)) || (secondPos.equals(fourthPos))) {
+	while (firstPos.equals(fourthPos) || secondPos.equals(fourthPos) ) {
 		r = (int) (Math.random()  * 6);
 		fourthPos = arr[r];
  }
 }
+
+
+
 
 /*public void printBoard() {
 System.out.println("\t Guesses \t Score");
@@ -102,6 +106,9 @@ System.out.println(board.get(4));
 */
 
 }
+
+
+
 
 
 
