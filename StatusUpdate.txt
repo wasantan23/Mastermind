@@ -6,6 +6,7 @@
 //Arraylist
 //2D Arraulist?
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Mastermind {
 
@@ -58,11 +59,7 @@ System.out.println(board.get(4));
 
 }
 
-public void addGuess (char [] arrChar) {
-	for (int i = 0; i < 4; i ++) {
-		board.get(0).set(i, String.valueOf(arrChar[i]) );
-}
-}
+
 
 public void computerGuess () {
 	int r = (int) (Math.random()  * 6);
@@ -91,10 +88,33 @@ while (firstPos.equals(secondPos)) {
 		r = (int) (Math.random()  * 6);
 		fourthPos = arr[r];
  }
+ System.out.print(firstPos + secondPos + thirdPos +fourthPos);
 }
 
 
-
+public void userGuess () {
+	Scanner scan = new Scanner(System.in); 
+	int guesses = 0;
+	
+	for (int y = 0; y < 20; y+=2) {
+		guesses = guesses + 1;
+		
+		System.out.println("Enter a letter for your first guess"); 
+		String firstLetter = scan.nextLine();
+		
+		System.out.println("Enter a letter for your second guess"); 
+		String secondLetter = scan.nextLine();
+		
+		System.out.println("Enter a letter for your third guess"); 
+		String thirdLetter = scan.nextLine();
+		
+		System.out.println("Enter a letter for your fourth guess"); 
+		String fourthLetter = scan.nextLine();
+		
+		board.get(y).set(0, firstLetter);
+		board.get(y).set(0, secondLetter);
+		board.get(y).set(0, thirdLetter);
+		board.get(y).set(0, fourthLetter);
 
 /*public void printBoard() {
 System.out.println("\t Guesses \t Score");
@@ -106,6 +126,9 @@ System.out.println(board.get(4));
 */
 
 }
+}
+}
+
 
 
 
