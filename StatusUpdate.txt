@@ -1,3 +1,4 @@
+//Tanisha Wasan
 //2D array List makes up the board
 //Secret does not get printed every time  
 //How many different trials
@@ -5,230 +6,248 @@
 //Variables
 //Arraylist
 //2D Arraylist?
-//Tanisha Wasan
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.ArrayList; //import needed to build the array list
+import java.util.Scanner; //import needed for scanner
 
 public class Mastermind {
+	//these are the hidden positions that the computer knows written as private varaiables 
+	private String firstPos;
+	private String secondPos; 
+	private String thirdPos; 
+	private String fourthPos; 
 
-private String firstPos;
-private String secondPos; 
-private String thirdPos; 
-private String fourthPos; 
+	//public static void main (String [] args) {
 
-//public static void main (String [] args) {
+	//char [][] arr = new char [10][8];
+	//This creates a 2D array list
+	ArrayList<ArrayList<String>> board = new ArrayList<ArrayList<String>>();
+	/* {{R,G B, Y, b, w, o, o},
+	{R,G B, Y, b, w, o, o},
+	{R,G B, Y, b, w, o, o},
+	{R,G B, Y, b, w, o, o},
+	}
+	*/
 
-//char [][] arr = new char [10][8];
-ArrayList<ArrayList<String>> board = new ArrayList<ArrayList<String>>();
-/* {{R,G B, Y, b, w, o, o},
-{R,G B, Y, b, w, o, o},
-{R,G B, Y, b, w, o, o},
-{R,G B, Y, b, w, o, o},
-}
-*/
+	/** Builds the board by using a for loop:
+	 * The board is made by a for loop constructing it
+	   to have exactly 10 rows. For each row I have four
+	   positions for the guess, one equal sign, and four
+	   other positions that allows up to four pins.
+	 */
+	   
+	public void buildBoard () {
+
+		//get at 0 has to be guess at
+		//board.get(0).add(" "); 
+
+		/*
+		for (int x = 0; x < 19; x++) {
+			System.out.println(board.get(x));
+		}
+			System.out.println(board.get(1));
+			System.out.println(board.get(2));
+			System.out.println(board.get(3));
+			System.out.println(board.get(4));
+			System.out.println(board.get(5));
+			System.out.println(board.get(6));
+			System.out.println(board.get(7));
+			System.out.println(board.get(8));
+			System.out.println(board.get(9));
+			
+		}
+		*/
 
 
-public void buildBoard () {
+		for (int x = 0; x < 10; x++) {
+		board.add(new ArrayList<String>());
+		board.get(x).add(" ");
+		board.get(x).add(" ");
+		board.get(x).add(" ");
+		board.get(x).add(" ");
+		board.get(x).add(" = ");
+		board.get(x).add(" ");
+		board.get(x).add(" ");
+		board.get(x).add(" ");
+		board.get(x).add(" ");
 
-//get at 0 has to be guess at
-//board.get(0).add(" "); 
 
-/*
-for (int x = 0; x < 19; x++) {
-	System.out.println(board.get(x));
-}
+	//how will the human add a guess - 4 digit color band
+
+	//}
+	}
+	}
+	
+	/** This prints the board:
+	 * I use a for each loop to get the 1D list.
+	 */
+	public void printBoard () {
+	System.out.println("   Guesses          Score");
+	//System.out.println(board);
+	for (ArrayList<String> row: board) {
+		System.out.println(row); 
+		
+		}
+
+
+	/*System.out.println(board.get(0));
 	System.out.println(board.get(1));
 	System.out.println(board.get(2));
 	System.out.println(board.get(3));
 	System.out.println(board.get(4));
-	System.out.println(board.get(5));
-	System.out.println(board.get(6));
-	System.out.println(board.get(7));
-	System.out.println(board.get(8));
-	System.out.println(board.get(9));
-	
-}
-*/
+	*/
 
-
-for (int x = 0; x < 10; x++) { 
-
-
-board.add(new ArrayList<String>());
-board.get(x).add(" ");
-board.get(x).add(" ");
-board.get(x).add(" ");
-board.get(x).add(" ");
-board.get(x).add(" = ");
-board.get(x).add(" ");
-board.get(x).add(" ");
-board.get(x).add(" ");
-board.get(x).add(" ");
-
-
-//how will the human add a guess - 4 digit color band
-
-//}
-}
-}
-
-public void printBoard () {
-System.out.println("   Guesses          Score");
-//System.out.println(board);
-for (ArrayList<String> row: board) {
-	System.out.println(row); 
-	
 	}
 
 
-/*System.out.println(board.get(0));
-System.out.println(board.get(1));
-System.out.println(board.get(2));
-System.out.println(board.get(3));
-System.out.println(board.get(4));
-*/
+	/** This is the method for the computer guess:
+	 * In this method, the computer will be guessing 
+	   a random number from 0 to 5. This random number
+	   will be assigned a letter which will count as 
+	   one of the four letters for the secret code.
+	   It uses while loops to make sure that none of 
+	   the numbers repeat so we do not get repeating 
+	   letters.
+	 */
+	public void computerGuess () {
+		int r = (int) (Math.random()  * 6);
+		String[] arr = { "R", "Y", "G", "P", "O", "B"}; //letters for the different colors 
+		firstPos = arr[r];  //assigns the first position to a place in the array that was randomly generated
+		int temp = (int) Math.random() *1000;
+		r = (int)(Math.random()  * 6);
+		secondPos = arr[r];
 
-}
-
-
-
-public void computerGuess () {
-	int r = (int) (Math.random()  * 6);
-	String[] arr = { "R", "Y", "G", "P", "O", "B"};
-	firstPos = arr[r];
-	int temp = (int) Math.random() *1000;
-	r = (int)(Math.random()  * 6);
-	secondPos = arr[r];
-
-while (firstPos.equals(secondPos)) {
-	r = (int) (Math.random()  * 6);
-	secondPos = arr[r];
-	
-}
-	r = (int) (Math.random()  * 6);
-	thirdPos = arr[r];
-	
-	while (firstPos.equals(thirdPos) || secondPos.equals(thirdPos)) {
-		r = (int) (Math.random()  * 6);
+		while (firstPos.equals(secondPos)) { //checks to see if the second position repeats
+			r = (int) (Math.random()  * 6);
+			secondPos = arr[r];
+			
+		}
+		r = (int) (Math.random()  * 6); //generates the third position
 		thirdPos = arr[r];
-	}
-	r = (int) (Math.random()  * 6);
-	fourthPos = arr[r];
-	
-	while (firstPos.equals(fourthPos) || secondPos.equals(fourthPos) || thirdPos.equals(fourthPos)) {
+		
+		while (firstPos.equals(thirdPos) || secondPos.equals(thirdPos)) { // checks to see if the third position repeats
+			r = (int) (Math.random()  * 6);
+			thirdPos = arr[r];
+		}
 		r = (int) (Math.random()  * 6);
 		fourthPos = arr[r];
- }
- //System.out.print(firstPos + secondPos + thirdPos +fourthPos);
-}
-
-
-public void userGuess () {
-	Scanner scan = new Scanner(System.in); 
-	int guesses = 0;
-	boolean won = false;
-	
-	for (int y = 0; y < 10 && won == false; y++) {
 		
-		guesses = guesses + 1;
-		
-		System.out.println(" Enter a letter for your first guess - B for blue, Y for yellow, \n P for purple, R for red, O for orange and G for green."); 
-		String firstLetter = scan.nextLine();
-		
-		System.out.println(" Enter a letter for your second guess - B for blue, Y for yellow, \n P for purple, R for red, O for orange and G for green."); 
-		String secondLetter = scan.nextLine();
-		
-		System.out.println(" Enter a letter for your third guess - B for blue, Y for yellow, \n P for purple, R for red, O for orange and G for green."); 
-		String thirdLetter = scan.nextLine();
-		
-		System.out.println(" Enter a letter for your fourth guess - B for blue, Y for yellow, \n P for purple, R for red, O for orange and G for green."); 
-		String fourthLetter = scan.nextLine();
-		
-		
-		board.get(y).set(0, firstLetter);
-		board.get(y).set(1, secondLetter);
-		board.get(y).set(2, thirdLetter);
-		board.get(y).set(3, fourthLetter);
-
-		System.out.println(board.get(y));
-		String black = "b"; //same position same color
-		String white = "w"; //wrong position same color
-		int game = 0;
-		int anyPos = 0; 
-
-		if (board.get(y).get(0).equals(firstPos)) {
-			game++;
-		}
-		if (board.get(y).get(1).equals(secondPos)) {
-			game++;
-		}
-		if (board.get(y).get(2).equals(thirdPos)) {
-			game++;
-		}
-		if (board.get(y).get(3).equals(fourthPos)) {
-			game++;
-		}
-
-		if (board.get(y).get(0).equals(firstPos) || board.get(y).get(0).equals(secondPos)
-			|| board.get(y).get(0).equals(thirdPos) || board.get(y).get(0).equals(fourthPos)) {
-			anyPos++;
-		}
-		if (board.get(y).get(1).equals(firstPos) || board.get(y).get(1).equals(secondPos) 
-			|| board.get(y).get(1).equals(thirdPos) || board.get(y).get(1).equals(fourthPos)) {
-			anyPos++;
-		}
-		if (board.get(y).get(2).equals(firstPos) || board.get(y).get(2).equals(secondPos) 
-			|| board.get(y).get(2).equals(thirdPos) || board.get(y).get(2).equals(fourthPos)) {
-			anyPos++;
-		}
-		if (board.get(y).get(3).equals(firstPos) || board.get(y).get(3).equals(secondPos)
-			|| board.get(y).get(3).equals(thirdPos) || board.get(y).get(3).equals(fourthPos)) {
-			anyPos++;
-		}
-		int noWhite = anyPos - game;
-		int nextAvPos = 5;
-		while (noWhite > 0) {
-			board.get(y).set(nextAvPos, white);
-			nextAvPos ++;
-			noWhite--;
-		}
-		
-		for (int m = 0; m < game; m ++) {
-			board.get(y).set(nextAvPos, black);
-			nextAvPos ++;
-		
-		}
-		System.out.println(board.get(y));
-		printBoard();
-		
-		if (game == 4) {
-			won = true;
-			System.out.println("Yay! You cracked the code.");
-	
-		}
-		
-/*public void printBoard() {
-System.out.println("\t Guesses \t Score");
-System.out.println(board.get(0));
-System.out.println(board.get(1));
-System.out.println(board.get(2));
-System.out.println(board.get(3));
-System.out.println(board.get(4));
-*/
-
-	
-}
-	if (won == false) {
-	System.out.println("You have lost the game!");
+		while (firstPos.equals(fourthPos) || secondPos.equals(fourthPos) || thirdPos.equals(fourthPos)) {  //checks to see if the fourth position repeats
+			r = (int) (Math.random()  * 6);
+			fourthPos = arr[r];
+	 }
+	 //System.out.print(firstPos + secondPos + thirdPos +fourthPos);
 	}
 
+	/** This is the method for the user guess:
+	 * In this method, the user will need to input
+	   the four letters that they think is the secret
+	   code. I then use if statements to check if a 
+	   black or white pin needs to be placed. 
+	 */
+	public void userGuess () {
+		Scanner scan = new Scanner(System.in);  
+		int guesses = 0; //variable for guesses
+		boolean won = false; //boolean to determine when the game goes
+		
+		for (int y = 0; y < 10 && won == false; y++) {
+			
+			guesses = guesses + 1;
+			//lines 156-166 is taking the user input 
+			System.out.println(" Enter a letter for your first guess - B for blue, Y for yellow, \n P for purple, R for red, O for orange and G for green."); 
+			String firstLetter = scan.nextLine(); 
+			
+			System.out.println(" Enter a letter for your second guess - B for blue, Y for yellow, \n P for purple, R for red, O for orange and G for green."); 
+			String secondLetter = scan.nextLine();
+			
+			System.out.println(" Enter a letter for your third guess - B for blue, Y for yellow, \n P for purple, R for red, O for orange and G for green."); 
+			String thirdLetter = scan.nextLine();
+			
+			System.out.println(" Enter a letter for your fourth guess - B for blue, Y for yellow, \n P for purple, R for red, O for orange and G for green."); 
+			String fourthLetter = scan.nextLine();
+			
+			//setting the 4 letters on the board
+			board.get(y).set(0, firstLetter);
+			board.get(y).set(1, secondLetter);
+			board.get(y).set(2, thirdLetter);
+			board.get(y).set(3, fourthLetter);
+
+			System.out.println(board.get(y));
+			String black = "b"; // pin for same position, same color
+			String white = "w"; //pin for wrong position, same color
+			int game = 0; //variable representing the black pins
+			int anyPos = 0; //variable representing if any position is correct
+			
+			//lines 180-191 checks to see if it is the same color and same position
+			if (board.get(y).get(0).equals(firstPos)) {
+				game++;
+			}
+			if (board.get(y).get(1).equals(secondPos)) {
+				game++;
+			}
+			if (board.get(y).get(2).equals(thirdPos)) {
+				game++;
+			}
+			if (board.get(y).get(3).equals(fourthPos)) {
+				game++;
+			}
+
+			if (board.get(y).get(0).equals(firstPos) || board.get(y).get(0).equals(secondPos)
+				|| board.get(y).get(0).equals(thirdPos) || board.get(y).get(0).equals(fourthPos)) {
+				anyPos++;
+			}
+			if (board.get(y).get(1).equals(firstPos) || board.get(y).get(1).equals(secondPos) 
+				|| board.get(y).get(1).equals(thirdPos) || board.get(y).get(1).equals(fourthPos)) {
+				anyPos++;
+			}
+			if (board.get(y).get(2).equals(firstPos) || board.get(y).get(2).equals(secondPos) 
+				|| board.get(y).get(2).equals(thirdPos) || board.get(y).get(2).equals(fourthPos)) {
+				anyPos++;
+			}
+			if (board.get(y).get(3).equals(firstPos) || board.get(y).get(3).equals(secondPos)
+				|| board.get(y).get(3).equals(thirdPos) || board.get(y).get(3).equals(fourthPos)) {
+				anyPos++;
+			}
+			
+			int noWhite = anyPos - game; //anyPos can be the same or different so we need to subtract it by the black pins to determine the white
+			int nextAvPos = 5; // starting place on the board
+			//while loop setting the white pins on the board
+			while (noWhite > 0) { 
+				board.get(y).set(nextAvPos, white); 
+				nextAvPos ++;
+				noWhite--;
+			}
+			//for loop setting the black pins on the board
+			for (int m = 0; m < game; m ++) {
+				board.get(y).set(nextAvPos, black);
+				nextAvPos ++;
+			
+			}
+			System.out.println(board.get(y));
+			printBoard();
+			
+			if (game == 4) { //checking to see if there are 4 black pins
+				won = true;
+				System.out.println("Yay! You cracked the code.");
+		
+			}
+			
+	/*public void printBoard() {
+	System.out.println("\t Guesses \t Score");
+	System.out.println(board.get(0));
+	System.out.println(board.get(1));
+	System.out.println(board.get(2));
+	System.out.println(board.get(3));
+	System.out.println(board.get(4));
+	*/
+
+		
+	}
+		if (won == false) { 
+		System.out.println("You have lost the game! The code was " +  firstPos + secondPos + thirdPos +fourthPos);
+		}
+
+	}
 }
-}
-
-
-
-
-
 
 
 
