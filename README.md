@@ -31,3 +31,5 @@ Mastermind.  (Main.java class if using Repl.it but ok)
 
 *Arrays - 1-2D array for player guesses
 	**1-1D array for the secret code
+	
+The process of Mastermind was super fun! I really enjoyed how we got to play the game first; it gave me a clearer understanding as to what I was supposed to do. Constructing the board was intresting because there were many different ways you could go about it. I did have a little issue where mt array list was not stacking on top of one another; however, I made a for each loop to fix this. My computerGuess method was not as hard to understand because I got to practice how to generate  random numbers in Bingo. I initally had the user guess method in my tester; however, I transferred this to my main Mastermind class. The tester class was just used to call on the different methods in my main Mastermind class. I did struggle a bit in figuring out how to place my black and white pins, but with help from my classmates, I managed to figure it out. I also learnt how to do java dox comments through this process. Overall, I really enjoyed this project. It has been one of my favorites so far. 
